@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn Zen Columns Layout Method</title>
+    <style>
+    /**
+     * Markup free clearing.
+     *
+     * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack
+     */
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    /* IE6 */
+    * html .clearfix {
+        height: 1%;
+    }
+    /* IE7 */
+    *:first-child + html .clearfix {
+        min-height: 1%;
+    }
+
+    /*
+     * The basic, fixed-width ZCLM.
+     */
+    .page {
+        width: 960px;
+    }
+    .wrapper.first {
+        position: relative;
+    }
+    .wrapper.first > .sidebar-left {
+        background-color: red;
+
+        float: left;
+        margin-left: 0;
+        width: 200px;
+        margin-right: -200px;
+    }
+    .wrapper.first > .main {
+        background-color: yellow;
+
+        float: left;
+        margin-left: 200px;
+        width: 760px;
+        margin-right: -960px;
+    }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="wrapper first clearfix">
+            <div class="sidebar-left">
+                Left sidebar.
+            </div>
+            <div class="main">
+                Main area.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
