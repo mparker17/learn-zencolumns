@@ -61,6 +61,47 @@
         width: 760px;
         margin-right: -960px;
     }
+
+    /*
+     * The advanced, flexible-width ZCLM.
+     *
+     * Pros:
+     * - You can have any number of columns.
+     * - You don't have to specify a width for one of the columns.
+     *
+     * Cons:
+     * - The order of the HTML does matter: fixed-width columns must be placed
+     *   after the flexible-width column so users can interact with their contents.
+     * - The flexible-width column needs an inner element.
+     * - If you want to put padding between the edge of the column and it's
+     *   contents, on the contents of a column, you either need to set the
+     *   box-sizing: border-box, or you need to create an inner element.
+     */
+    .wrapper.second {
+        position: relative;
+    }
+    .wrapper.second > .sidebar-left {
+        background-color: green;
+
+        float: left;
+        margin-left: 0;
+        width: 200px;
+        margin-right: -200px;
+        padding: 0;
+    }
+    .wrapper.second > .main {
+        background-color: blue;
+
+        float: left;
+        margin-left: 0;
+        width: 100%;
+        margin-right: -100%;
+        padding: 0;
+    }
+    .wrapper.second > .main > .inner {
+        padding-left: 200px;
+        padding-right: 0;
+    }
     </style>
 </head>
 <body>
@@ -72,6 +113,17 @@
             <div class="sidebar-left">
                 Left sidebar.
             </div>
+        </div>
+    </div>
+
+    <div class="wrapper second clearfix">
+        <div class="main">
+            <div class="inner">
+                Main area.
+            </div>
+        </div>
+        <div class="sidebar-left">
+            Left sidebar.
         </div>
     </div>
 </body>
