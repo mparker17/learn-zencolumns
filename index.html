@@ -25,7 +25,19 @@
     }
 
     /*
-     * The basic, fixed-width ZCLM.
+     * The basic Zen Columns Layout Method.
+     *
+     * Pros:
+     * - You can have any number of columns.
+     * - The order of the HTML doesn't matter.
+     * - You can measure in px or %.
+     *
+     * Cons:
+     * - You have to explicitly set the width of all columns, meaning you have
+     *   to use the same unit of measurement for all columns.
+     * - If you want to put padding between the edge of the column and it's
+     *   contents, on the contents of a column, you either need to set the
+     *   box-sizing: border-box, or you need to create an inner element.
      */
     .page {
         width: 960px;
