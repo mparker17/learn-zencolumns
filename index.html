@@ -104,6 +104,41 @@
         padding-right: 0;
     }
 
+    /*
+     * Another advanced, flexible-width ZCLM.
+     *
+     * Pros:
+     * - You can have any number of columns.
+     * - You don't have to specify a width for one of the columns.
+     *
+     * Cons:
+     * - The order of the HTML does matter: fixed-width columns must be placed
+     *   before the flexible-width column so users can interact with their
+     *   contents.
+     * - If you want to put padding between the edge of the column and it's
+     *   contents, on the contents of a column, you either need to set the
+     *   box-sizing: border-box, or you need to create an inner element.
+     */
+    .wrapper.third {
+        position: relative;
+    }
+    .wrapper.third > .sidebar-left {
+        background-color: cyan;
+
+        float: left;
+        margin-left: 0;
+        width: 200px;
+        margin-right: -200px;
+        padding: 0;
+    }
+    .wrapper.third > .main {
+        background-color: magenta;
+
+        margin-left: 200px;
+        margin-right: 0;
+        padding: 0;
+    }
+
     </style>
 </head>
 <body>
@@ -127,6 +162,15 @@
         </div>
         <div class="sidebar-left">
             Left sidebar.
+        </div>
+    </div>
+
+    <div class="wrapper third clearfix">
+        <div class="sidebar-left">
+            Left sidebar.
+        </div>
+        <div class="main">
+            Main area.
         </div>
     </div>
 
